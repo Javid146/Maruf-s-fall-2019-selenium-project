@@ -1,11 +1,9 @@
 package com.cybertek.utilities;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 public class DBUtils {
     private static Connection connection;
     private static Statement statement;
@@ -136,8 +134,7 @@ public class DBUtils {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-        return rowList;
-    }
+        return rowList; }
 
     /**
      * @param query

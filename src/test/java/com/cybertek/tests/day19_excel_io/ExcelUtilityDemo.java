@@ -1,6 +1,4 @@
 package com.cybertek.tests.day19_excel_io;
-
-
 import com.cybertek.utilities.ExcelUtil;
 import org.testng.annotations.Test;
 
@@ -8,11 +6,13 @@ import java.util.List;
 import java.util.Map;
 
 public class ExcelUtilityDemo {
+    //excel file-a geden path ve file icindeki sheet (sehife) adi
     private String filePath = "src/test/resources/Vytrack testusers.xlsx";
     private String sheetName = "QA3-short";
+
     @Test
     public void test() {
-
+        //excel file-a geden path ve file icindeki sheet (sehife) adi
         ExcelUtil qa3Short = new ExcelUtil(filePath, sheetName);
         System.out.println(qa3Short.getColumnsNames());
 

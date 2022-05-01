@@ -1,5 +1,4 @@
 package com.cybertek.tests.day11_select_actions;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -17,39 +16,27 @@ public class JavaScriptExecutorTests {
     @BeforeMethod
     public void beforeMethod() {
         driver = WebDriverFactory.getDriver("chrome");
-        jse = (JavascriptExecutor) driver;
-    }
+        jse = (JavascriptExecutor) driver; }
 
-    @AfterMethod
-    public void afterTest() {
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void afterTest() { driver.quit(); }
 
     @Test
     public void scroll() throws InterruptedException {
         driver.get("http://practice.cybertekschool.com/");
 
-        WebElement link = driver.findElement(By.linkText("Cybertek School"));
+        WebElement link = driver.findElement(By.cssSelector("a[href='/abtest']"));
         Thread.sleep(2000);
-        jse.executeScript("arguments[0].scrollIntoView(true);", link);
-
-        Thread.sleep(2000);
-    }
+        jse.executeScript("arguments[0].scrollIntoView(true);", link);////////////////////////////////////////////
+        Thread.sleep(2000);}
 
     @Test
     public void sendKeysWithJS(){
 
         driver.get("http://practice.cybertekschool.com/dynamic_controls");
-
-        WebElement input = driver.findElement(By.cssSelector("input[disabled]"));
+        WebElement input = driver.findElement(By.cssSelector("input[disabled]"));// finds the input box
 
         String text = "hi world";
-
-        jse.executeScript("arguments[0].setAttribute('value', '" + text +"')", input);
-
-        // arguments[0].setAttribute('value', 'HELLO WORLD')
-
-    }
-
-
-}
+//        jse.executeScript("arguments[0].setAttribute('value', '" + text +"')", input);////////////////////////////
+        //above 'value' is text (hi world) and input is is the box in website to type value
+        jse.executeScript("arguments[0].setAttribute('value', 'HELLO WORLD')",input); }}

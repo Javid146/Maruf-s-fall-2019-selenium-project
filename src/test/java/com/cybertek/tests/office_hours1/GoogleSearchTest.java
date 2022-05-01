@@ -1,5 +1,4 @@
 package com.cybertek.tests.office_hours1;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -31,8 +30,8 @@ List<String> searchStrs = Arrays.asList("Java", "cucumber bdd", “Selenium web 
 //        List<String> searchStrs = Arrays.asList("Java");
 
         for (String searchStr : searchStrs) {
-            WebElement searchInput = driver.findElement(By.name("q"));
-            // this is for setting up the 2 and 3 rd loop
+            WebElement searchInput = driver.findElement(By.name("q"));//finds the google search box
+            // this is for setting up the 2 and 3rd loop
             searchInput.clear();
             searchInput.sendKeys(searchStr + Keys.ENTER);
 
@@ -40,23 +39,18 @@ List<String> searchStrs = Arrays.asList("Java", "cucumber bdd", “Selenium web 
             String expectedUrl = url.getText();
             System.out.println(expectedUrl);
 
-            WebElement link = driver.findElement(By.cssSelector("div.r>a>h3"));
+            WebElement link = driver.findElement(By.cssSelector("div>a>h3"));
             link.click();
 
-            if (expectedUrl.equals(driver.getCurrentUrl())) {
+            if (driver.getCurrentUrl().contains(expectedUrl)) {
                 System.out.println("PASS");
             } else {
                 System.out.println("FAIL");
-                System.out.println("Expected = " + expectedUrl);
+                System.out.println("Expected = " + "https://cucumber.io/");
                 System.out.println("Actual = " + driver.getCurrentUrl());
             }
 
             driver.navigate().back();
-
         }
         driver.quit();
-
-    }
-
-
-}
+    }}

@@ -1,6 +1,4 @@
 package com.cybertek.tests.day21_db_testing;
-
-import com.cybertek.base.VytrackPageBase;
 import com.cybertek.base.VytrackTestBase;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
@@ -23,16 +21,17 @@ public class CreateNewContactDBTest extends VytrackTestBase {
                 "/" + ConfigurationReader.getProperty("qa3_db_name");
         String username = ConfigurationReader.getProperty("qa3_db_username");
         String password = ConfigurationReader.getProperty("qa3_db_password");
-        DBUtils.createConnection(URL, username, password);
-    }
+        DBUtils.createConnection(URL, username, password); }
 
     @Test
     public void createContactTests() {
-
-        test = report.createTest("Create contact db validatoin");
+        //get fake person details
+        test = report.createTest("Create contact db validation");
+        //open vytrack/create, login
         loginPage.login(ConfigurationReader.getProperty("sales_manager_username"),
-                ConfigurationReader.getProperty("sales_manager_password"));
-        driver.get("https://qa3.vytrack.com/contact/create");
+                        ConfigurationReader.getProperty("sales_manager_password"));
+        driver.get("https://app.vytrack.com/contact/create");
+
         // generate test data for creating new user
         Faker faker = new Faker();
         String eFirstName = faker.name().firstName();
@@ -41,12 +40,12 @@ public class CreateNewContactDBTest extends VytrackTestBase {
         String eEmail = eFirstName.toLowerCase() + eLastName.toLowerCase() + "@" + company;
         System.out.println("eEmail = " + eEmail);
         BrowserUtils.wait(3);
-        // create new user with the given test data
+        // fill in blank space in vytrack with faker details to create new contact
         createContactsPage.firstName.sendKeys(eFirstName);
         createContactsPage.lastName.sendKeys(eLastName);
         createContactsPage.email.sendKeys(eEmail);
         createContactsPage.saveAndClose.click();
-        BrowserUtils.wait(3);
+        BrowserUtils.wait(8);
 
         // get the new user information: first name, last name, email from database based on email
         // first name, last name  --. in the contact
@@ -54,7 +53,7 @@ public class CreateNewContactDBTest extends VytrackTestBase {
         // we have to use inner join to join the contact table and email table based on the id of the contact
         // use email in where of query to filter the results
 
-        String sql = "select  orocrm_contact.first_name, orocrm_contact.last_name, orocrm_contact_email.email \n" +
+        String sql = "select orocrm_contact.first_name, orocrm_contact.last_name, orocrm_contact_email.email \n" +
                 "from orocrm_contact\n" +
                 "join orocrm_contact_email\n" +
                 "on orocrm_contact.id =orocrm_contact_email.owner_id\n" +
@@ -68,13 +67,8 @@ public class CreateNewContactDBTest extends VytrackTestBase {
         String actualFirstName = (String) dbData.get("first_name");
         String actualLastName = (String) dbData.get("last_name");
         String actualEmail = (String) dbData.get("email");
-
         // verify
         assertEquals(actualFirstName, eFirstName, "First name did not match");
         assertEquals(actualLastName, eLastName, "Last name did not match");
         assertEquals(actualEmail, eEmail, "Email did not match");
-
-        test.pass("Create contact db validation passed");
-    }
-
-}
+        test.pass("Create contact db validation passed"); }}

@@ -1,21 +1,20 @@
 package com.cybertek.tests.day16_page_object_model;
-
 import com.cybertek.base.VytrackTestBase;
 import com.cybertek.utilities.ConfigurationReader;
+import com.cybertek.utilities.Driver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
 
-
 public class PageHeadersTests extends VytrackTestBase {
-    // go to vyrack
-    // login as driver
-    // verify  header is "Quick Launchpad"
+
+    @AfterMethod
+    public void close(){ Driver.closeDriver(); }
 
     @Test
     public void dashboardPageTest(){
-
         test = report.createTest("Dashboard page title test");
 
         String username = ConfigurationReader.getProperty("driver_username");
@@ -27,15 +26,7 @@ public class PageHeadersTests extends VytrackTestBase {
         String actual = dashboardPage.pageHeader.getText();
         test.info("Verifying page header text");
         assertEquals(actual, "Quick Launchpad");
-        test.pass("PASS: Dashboard page title test");
-
-    }
-
-
-//    go to vyrack
-    // go to Fleet vehicles
-    // login as driver
-    // verify  header is "Cars"
+        test.pass("PASS: Dashboard page title test"); }
 
     @Test
     public void fleetVehiclesTest() throws InterruptedException {
@@ -60,10 +51,8 @@ public class PageHeadersTests extends VytrackTestBase {
         wait.until(ExpectedConditions.textToBePresentInElement(vehiclesPage.pageHeader, "Cars"));
         test.info("Verifying page header");
         String actual = vehiclesPage.pageHeader.getText();
-        assertEquals(actual, "Carros");
-        test.pass("PASS: Vehicles page title test");
-
-    }
+        assertEquals(actual, "Cars");
+        test.pass("PASS: Vehicles page title test"); }
 
 //    go to vyrack
     // go to Customer Contacts
@@ -91,7 +80,4 @@ public class PageHeadersTests extends VytrackTestBase {
         test.info("Verifying page header");
         String actual = vehiclesPage.pageHeader.getText();
         assertEquals(actual, "Contacts");
-        test.pass("PASS: Contacts page title test");
-
-    }
-}
+        test.pass("PASS: Contacts page title test"); }}

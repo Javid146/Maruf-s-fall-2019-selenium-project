@@ -1,5 +1,4 @@
 package com.cybertek.tests.day7_review;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,7 +22,6 @@ public class AmazonCssExample {
             System.out.println("expected = " + expected);
             System.out.println("actual " + topHeader.getText());
         }
-
         WebElement bottomHeader = driver.findElement(By.cssSelector("h1>div:nth-of-type(1)"));
         System.out.println(bottomHeader.getText());
 
@@ -34,8 +32,6 @@ public class AmazonCssExample {
             System.out.println("expected = " + expected);
             System.out.println("actual = " + bottomHeader.getText());
         }
-
         driver.close();
-
     }
 }

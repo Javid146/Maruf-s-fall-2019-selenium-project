@@ -1,5 +1,4 @@
 package com.cybertek.tests.day11_select_actions;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -11,20 +10,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class ActionsClassDemo {
-
     WebDriver driver;
     Actions actions;
 
     @BeforeMethod
     public void beforeMethod() {
-        driver = WebDriverFactory.getDriver("firefox");
-        actions = new Actions(driver);
-    }
+        driver = WebDriverFactory.getDriver("chrome");
+        actions = new Actions(driver); }
 
-    @AfterMethod
-    public void afterTest() {
-        driver.quit();
-    }
+    //@AfterMethod
+    //public void afterTest() {driver.quit();}
 
     @Test
     public void hoverTest() throws InterruptedException {
@@ -32,11 +27,10 @@ public class ActionsClassDemo {
         Thread.sleep(2000);
         WebElement target = driver.findElement(By.tagName("img"));
 
+        Actions  actions = new Actions(driver);/////////////////////////////////////////////
         // moveToElement --> moves the mouse on top of given web element
-        actions.moveToElement(target).perform();
-        Thread.sleep(3000);
-
-    }
+        actions.moveToElement(target).perform();///////////////////////////////////////////////////////////////////////
+        Thread.sleep(3000); }
 
     @Test
     public void hover2(){
@@ -50,15 +44,12 @@ public class ActionsClassDemo {
         // move the mouse to downloads
         // wait
         // click on PDF
-
-        actions.moveToElement(enabled).
+        actions.moveToElement(enabled)./////////////////////////////////////////////////////////////////////////////////
                 pause(2000).
                 moveToElement(downloads).
                 pause(2000).
                 click(pdf).
-                build().perform();
-
-    }
+                build().perform(); }
 
     @Test
     public void dragAndDrop() throws InterruptedException {
@@ -69,12 +60,10 @@ public class ActionsClassDemo {
         Thread.sleep(2000);
 
         // scroll
-        actions.sendKeys(Keys.PAGE_DOWN).perform();
+        actions.sendKeys(Keys.PAGE_DOWN).perform();/////////////////////////////////////////////////////////////////////
 //        actions.sendKeys(Keys.ARROW_DOWN).perform();
-
-        actions.dragAndDrop(money, bank).perform();
-        Thread.sleep(2000);
-    }
+        actions.dragAndDrop(money, bank).perform();/////////////////////////////////////////////////////////////////////
+        Thread.sleep(2000); }
 
     /*
     TASK
@@ -84,7 +73,6 @@ public class ActionsClassDemo {
     move mouse to target/bank
     mouse up
      */
-
     @Test
     public void dragAndDropAgain() throws InterruptedException {
         driver.get("https://demos.telerik.com/kendo-ui/dragdrop/index");
@@ -92,9 +80,5 @@ public class ActionsClassDemo {
         WebElement money = driver.findElement(By.id("draggable"));
         WebElement bank = driver.findElement(By.id("droptarget"));
         Thread.sleep(2000);
-        actions.moveToElement(money).clickAndHold().moveToElement(bank).release().build().perform();
-        Thread.sleep(2000);
-
-    }
-
-}
+        actions.moveToElement(money).clickAndHold().moveToElement(bank).release().build().perform();///////////////////
+        Thread.sleep(2000); }}

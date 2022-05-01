@@ -1,5 +1,4 @@
 package com.cybertek.tests.day21_db_testing;
-
 import com.cybertek.utilities.DBUtils;
 import org.testng.annotations.Test;
 
@@ -22,7 +21,5 @@ public class DbUtilityDemo {
         System.out.println(DBUtils.getQueryResultList(sql));
         System.out.println(DBUtils.getColumnNames(sql));
         System.out.println(DBUtils.getColumnData(sql, "first_name"));
-
-
     }
 }

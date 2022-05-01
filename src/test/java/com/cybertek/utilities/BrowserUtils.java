@@ -1,5 +1,5 @@
 package com.cybertek.utilities;
-
+import com.aventstack.extentreports.utils.FileUtil;
 import com.cybertek.utilities.Driver;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
 public class BrowserUtils {
 
     /**
@@ -98,4 +97,5 @@ public class BrowserUtils {
         FileUtils.copyFile(source, finalDestination);
         return target;
     }
+
 }

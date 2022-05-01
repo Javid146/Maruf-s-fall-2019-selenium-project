@@ -1,29 +1,16 @@
 package com.cybertek.tests.day5_more_xpath;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class XpathDemo {
-
     public static void main(String[] args) {
 
-        // get chrome
         WebDriver driver = WebDriverFactory.getDriver("chrome");
-
-        // open browser
         driver.get("http://practice.cybertekschool.com/multiple_buttons");
 
-
-// represent an element from page
-        // where the elements come from?
-        // form the finELement methods
-        // how  finELement finds elements?
-        // using locators
-
         WebElement buttonOne = driver.findElement(By.xpath("//button[@onclick='button1()']"));
-        // start interacting with the element
         String txt = buttonOne.getText();
         System.out.println(txt);
 
@@ -39,12 +26,12 @@ public class XpathDemo {
         System.out.println(buttonFive.getText());
 
         WebElement buttonSix= driver.findElement(By.xpath("//button[@id='disappearing_button']"));
-        // element.getAttribute("value")  --. method to get text form element, used with input boxes alot
-        // get text of the element
+        // element.getAttribute("value")  --. method to get text from element, used with input boxes a lot
+        // get text (value) of the element
         System.out.println(buttonSix.getAttribute("innerHTML"));
 
         // if none of the works use outerHTML
-        System.out.println(buttonSix.getAttribute("outerHTML"));
+        System.out.println(buttonSix.getAttribute("outerHTML"));//////////////////////////////////////////////////////////////
 
     }
 }

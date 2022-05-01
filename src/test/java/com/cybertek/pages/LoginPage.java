@@ -1,5 +1,4 @@
 package com.cybertek.pages;
-
 import com.cybertek.base.VytrackPageBase;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;
@@ -9,11 +8,9 @@ import org.openqa.selenium.support.PageFactory;
 
 public class LoginPage {
     public LoginPage() {
-        // page object classes needs contructor. here we have to call the PageFactory.initElements
-        // from selenium and pass a webdriver object and this class as param
-        PageFactory.initElements(Driver.getDriver(), this);
-
-    }
+        // page object classes need constructor. here we have to call the PageFactory.initElements
+        // from selenium and pass a web driver object and this class as param
+        PageFactory.initElements(Driver.getDriver(), this); }
 
     // FindBy --> we provide the locator for webelement
     @FindBy(id = "prependedInput")
@@ -31,7 +28,4 @@ public class LoginPage {
    public void login(String username, String password){
        this.username.sendKeys(username);
        this.password.sendKeys(password);
-       logIn.click();
-   }
-
-}
+       logIn.click(); }}

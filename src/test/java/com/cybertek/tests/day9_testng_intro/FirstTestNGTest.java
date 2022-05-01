@@ -1,5 +1,4 @@
 package com.cybertek.tests.day9_testng_intro;
-
 import org.testng.annotations.Ignore;
 import org.testng.annotations.Test;
 

@@ -1,5 +1,4 @@
 package com.cybertek.tests.day16_page_object_model;
-
 import com.cybertek.base.TestBase;
 import com.cybertek.pages.LoginPage;
 import com.cybertek.utilities.ConfigurationReader;
@@ -11,7 +10,6 @@ import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 
 public class PositiveLoginTests extends TestBase {
-
     LoginPage loginPage;
     WebDriverWait wait;
 
@@ -19,9 +17,7 @@ public class PositiveLoginTests extends TestBase {
     public void setUpTests() {
         driver.get(ConfigurationReader.getProperty("vytrack_url"));
         loginPage = new LoginPage();
-        wait = new WebDriverWait(driver, 5);
-
-    }
+        wait = new WebDriverWait(driver, 8); }
 
     @Test
     public void loginAsDrivers(){
@@ -30,34 +26,23 @@ public class PositiveLoginTests extends TestBase {
         loginPage.login(username, password);
         wait.until(ExpectedConditions.titleIs("Dashboard"));
         String actualTitle = driver.getTitle();
-        assertEquals(actualTitle, "Dashboard");
-
-    }
+        assertEquals(actualTitle, "Dashboard"); }
 
     @Test
-    public void loginAsSalesManger(){
+    public void loginAsSalesManger() throws InterruptedException {
+//        Thread.sleep(3000);
         String username = ConfigurationReader.getProperty("sales_manager_username");
         String password = ConfigurationReader.getProperty("sales_manager_password");
         loginPage.login(username, password);
         wait.until(ExpectedConditions.titleIs("Dashboard"));
         String actualTitle = driver.getTitle();
-        assertEquals(actualTitle, "Dashboard");
-
-    }
+        assertEquals(actualTitle, "Dashboard"); }
 
     @Test
-    public void loginAsStoreManager(){
+    public void loginAsStoreManager() throws InterruptedException {
+//        Thread.sleep(3000);
         String username = ConfigurationReader.getProperty("store_manager_username");
         String password = ConfigurationReader.getProperty("store_manager_password");
         loginPage.login(username, password);
-
         wait.until(ExpectedConditions.titleIs("Dashboard"));
-        assertEquals(driver.getTitle(), "Dashboard");
-
-    }
-
-
-
-
-
-}
+        assertEquals(driver.getTitle(), "Dashboard"); }}

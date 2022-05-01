@@ -1,7 +1,7 @@
 package com.cybertek.base;
-
 import com.cybertek.utilities.Driver;
 import com.cybertek.utilities.WebDriverFactory;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -11,14 +11,11 @@ public abstract class TestBase {
 
     @BeforeMethod
     public void setUpMethod() {
-        driver = Driver.getDriver();
-
-    }
-
-    @AfterMethod
-    public void tearDownMethod() throws InterruptedException {
+        driver = Driver.getDriver(); }
+//
+//    @AfterMethod
+//    public void tearDownMethod() throws InterruptedException {
 //        Thread.sleep(5000);
-        Driver.closeDriver();
-    }
-}
+//        Driver.closeDriver();}
+ }
 

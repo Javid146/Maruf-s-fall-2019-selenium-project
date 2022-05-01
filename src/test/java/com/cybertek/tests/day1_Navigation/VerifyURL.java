@@ -1,16 +1,9 @@
 package com.cybertek.tests.day1_Navigation;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class VerifyURL {
-
-    /*
-    1. go to Etsy  https://www.etsy.com/
-    2. Verify URL
-
-     */
 
     public static void main(String[] args) {
 
@@ -21,7 +14,7 @@ public class VerifyURL {
         driver.manage().window().maximize();
 
         //for verify title --> getTitle()
-        //for verify URL -->
+        //for verify URL -->   getCurrentUrl()
 
         String expectedURL = "https://www.etsy.c/";
 

@@ -7,7 +7,7 @@ public class SystemPropertiesExample {
 
         System.out.println(property);
 
-        System.out.println("OS: " + System.getProperty("os.name") + "; Version: " + System.getProperty("os.version"));
+        System.out.println("OS: " + property + "; Version: " + System.getProperty("os.version"));
 
     }
 }

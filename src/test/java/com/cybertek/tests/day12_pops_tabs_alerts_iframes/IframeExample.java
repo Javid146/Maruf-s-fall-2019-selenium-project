@@ -1,5 +1,4 @@
 package com.cybertek.tests.day12_pops_tabs_alerts_iframes;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -9,8 +8,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class IframeExample {
-
-
     WebDriver driver;
 
     @BeforeMethod
@@ -18,10 +15,8 @@ public class IframeExample {
         driver = WebDriverFactory.getDriver("chrome");
     }
 
-    @AfterMethod
-    public void afterTest() {
-        driver.quit();
-    }
+   // @AfterMethod
+   // public void afterTest() {driver.quit();}
 
     @Test
     public void test() throws InterruptedException {
@@ -29,14 +24,14 @@ public class IframeExample {
 
         // we will switch to iframe.
         // TODO switch by id/name
-        driver.switchTo().frame("mce_0_ifr");
+        driver.switchTo().frame("mce_0_ifr");//////////////////////////////////////////////////////////////////
 
         WebElement textBox = driver.findElement(By.id("tinymce"));
-        textBox.clear();
+        textBox.clear();////////////////////////////////////////////////////////////////////////////////////////////////
         textBox.sendKeys("great.thanks");
 
-        // get out fo the frame
-        driver.switchTo().defaultContent();
+        // get out of the frame
+        driver.switchTo().defaultContent();/////////////////////////////////////////////////////////////////////////////
         System.out.println(driver.findElement(By.tagName("h3")).getText());
 
         // TODO switch by webelement
@@ -48,15 +43,12 @@ public class IframeExample {
         textBox.sendKeys("great.thanks one time");
 
         // get out of the frame
-        driver.switchTo().parentFrame();
+        driver.switchTo().parentFrame();////////////////////////////////////////////////////////////////////////////////
         System.out.println(driver.findElement(By.tagName("h3")).getText());
 
         // TODO switch by index
-        driver.switchTo().frame(0);
+        driver.switchTo().frame(0);///////////////////////////////////////////////////////////////////////////////
 
         textBox = driver.findElement(By.id("tinymce"));
         textBox.clear();
-        textBox.sendKeys("great.thanks last time");
-
-    }
-}
+        textBox.sendKeys("great.thanks last time"); }}

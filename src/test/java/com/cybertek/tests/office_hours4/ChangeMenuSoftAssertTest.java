@@ -1,5 +1,4 @@
 package com.cybertek.tests.office_hours4;
-
 import com.cybertek.base.VytrackTestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
@@ -8,10 +7,6 @@ import org.testng.asserts.SoftAssert;
 import static org.testng.Assert.assertNotEquals;
 
 public class ChangeMenuSoftAssertTest extends VytrackTestBase {
-    // go to vyrack
-    //verify we are logged in
-    // change menu to vehicles and verify title
-    // change menu to customers and verify title
 
     @Test
     public void testMenuOptions() throws InterruptedException {
@@ -21,11 +16,10 @@ public class ChangeMenuSoftAssertTest extends VytrackTestBase {
 
         dashboardPage.changeMenu("Fleet", "Vehicles");
         Thread.sleep(2000);
-        softAssert.assertTrue(driver.getTitle().contains("my Jeep car"), "Vehicles page title did not match");
+        softAssert.assertTrue(driver.getTitle().contains("Car - Entities"), "Vehicles page title did not match");
 
-        dashboardPage.changeMenu("Customers", "Accounts");
-        Thread.sleep(2000);
-        softAssert.assertTrue(driver.getTitle().contains("Accounts"), "Accounts page title did not match");
+        Thread.sleep(8000);
 
-    }
-}
+        dashboardPage.changeMenu("Customers", "Contacts");
+        Thread.sleep(8000);
+        softAssert.assertTrue(driver.getTitle().contains("Contacts"), "Accounts page title did not match"); }}

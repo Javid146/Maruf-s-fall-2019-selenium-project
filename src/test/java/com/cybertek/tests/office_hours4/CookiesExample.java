@@ -1,5 +1,4 @@
 package com.cybertek.tests.office_hours4;
-
 import com.cybertek.base.TestBase;
 import com.cybertek.utilities.Driver;
 import org.openqa.selenium.By;
@@ -20,14 +19,14 @@ public class CookiesExample extends TestBase {
 
         System.out.println(driver.getCurrentUrl());
         // get all cookies
-        Set<Cookie> cookies = driver.manage().getCookies();
+        Set<Cookie> cookies = driver.manage().getCookies();///////////////////////////////////////////////////////////
         System.out.println("cookies.size() = " + cookies.size());
         for (Cookie cookie : cookies) {
             System.out.println(cookie.toString());
         }
 
         // delete all cookies
-        driver.manage().deleteAllCookies();
+        driver.manage().deleteAllCookies();////////////////////////////////////////////////////////////////////////////
         driver.navigate().refresh();
         System.out.println(driver.getCurrentUrl());
 

@@ -26,8 +26,6 @@ public class Navigations {
         ChromeDriver driver1 = new ChromeDriver();
 
 
-
-
         String practiceWebURL = "http://practice.cybertekschool.com/";
         // go to practice
         driver.get(practiceWebURL);

@@ -1,5 +1,4 @@
 package com.cybertek.tests.day10_webelement;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,15 +9,12 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class CheckboxesTest {
-
     WebDriver driver;
 
     @BeforeMethod
     public void beforeMethod() {
         driver = WebDriverFactory.getDriver("chrome");
-        driver.get("http://practice.cybertekschool.com/checkboxes");
-
-    }
+        driver.get("http://practice.cybertekschool.com/checkboxes"); }
 
     @AfterMethod
     public void afterTest() {
@@ -45,7 +41,4 @@ public class CheckboxesTest {
         System.out.println("is two selected: "+ two.isSelected());
 
         Assert.assertTrue(one.isSelected());
-        Assert.assertTrue(two.isSelected());
-
-    }
-}
+        Assert.assertTrue(two.isSelected()); }}

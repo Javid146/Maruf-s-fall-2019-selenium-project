@@ -1,5 +1,4 @@
 package com.cybertek.tests.day12_pops_tabs_alerts_iframes;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -8,8 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class PopupAndAlertsExamples {
-
-
     WebDriver driver;
 
     @BeforeMethod
@@ -18,32 +15,27 @@ public class PopupAndAlertsExamples {
     }
 
     @AfterMethod
-    public void afterTest() {
-        driver.quit();
-    }
+    public void afterTest() {driver.quit();}
 
-    @Test
-    public void htmlPopup() throws InterruptedException {
-        driver.get("https://www.primefaces.org/showcase/ui/overlay/confirmDialog.xhtml");
-        WebElement button = driver.findElement(By.xpath("//span[text()='Destroy the World']"));
-        button.click();
-
-        Thread.sleep(1000);
-        WebElement noooo = driver.findElement(By.xpath("//span[.='No']"));
-        noooo.click();
-        Thread.sleep(1000);
-    }
+//    @Test
+//    public void htmlPopup() throws InterruptedException {
+//        driver.get("https://www.primefaces.org/showcase/ui/overlay/confirmDialog.xhtml");
+//        WebElement button = driver.findElement(By.xpath("//span[text()='Destroy the World']"));
+//        button.click();
+//
+//        Thread.sleep(1000);
+//        WebElement noooo = driver.findElement(By.xpath("//span[.='No']"));
+//        noooo.click();
+//        Thread.sleep(1000); }
 
     @Test
     public void jsAlertsAccept() {
         driver.get("http://practice.cybertekschool.com/javascript_alerts");
-
         WebElement button1 = driver.findElement(By.xpath("//button[1]"));
         button1.click();
 
-        Alert alert = driver.switchTo().alert();
-        alert.accept();
-    }
+        Alert alert = driver.switchTo().alert();////////////////////////////////////////////////////////////////////////
+        alert.accept(); }
 
     @Test
     public void jsAlertsCancel() {
@@ -52,9 +44,8 @@ public class PopupAndAlertsExamples {
         WebElement button2 = driver.findElement(By.xpath("//button[2]"));
         button2.click();
 
-        Alert alert = driver.switchTo().alert();
-        alert.dismiss();
-    }
+        Alert alert = driver.switchTo().alert();///////////////////////////////////////////////////////////////////////
+        alert.dismiss(); }
 
     @Test
     public void jsAlertsSendkeys() {
@@ -68,10 +59,6 @@ public class PopupAndAlertsExamples {
             alert = driver.switchTo().alert();
             alert.sendKeys("Admiral Kunkka");
             alert.accept();
-
         } catch (NoAlertPresentException e) {
             e.printStackTrace();
-        }
-    }
-
-}
+        } }}

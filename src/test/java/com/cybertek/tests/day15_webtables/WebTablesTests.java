@@ -1,5 +1,4 @@
 package com.cybertek.tests.day15_webtables;
-
 import com.cybertek.base.TestBase;
 import com.cybertek.utilities.BrowserUtils;
 import com.cybertek.utilities.ConfigurationReader;
@@ -17,16 +16,13 @@ public class WebTablesTests extends TestBase {
     public void setUpTest() {
         String url = ConfigurationReader.getProperty("url");
         driver.get(url);
-        driver.findElement(By.linkText("Sortable Data Tables")).click();
-
-    }
+        driver.findElement(By.linkText("Sortable Data Tables")).click(); }
 
     // GET WHOLE TABLE
     @Test
     public void printTable() {
         WebElement myTable = driver.findElement(By.id("table1"));
-        System.out.println(myTable.getText());
-    }
+        System.out.println(myTable.getText()); }
 
     // GET ALL HEADERS
     @Test
@@ -39,9 +35,7 @@ public class WebTablesTests extends TestBase {
         List<WebElement> headers = driver.findElements(By.xpath("//table[@id='table1']//th"));
         System.out.println(headers.size());
         // use BrowserUtils to get the list of headers as text and print
-        System.out.println(BrowserUtils.getElementsText(headers));
-
-    }
+        System.out.println(BrowserUtils.getElementsText(headers)); }
 
     // GET table size
     @Test
@@ -52,13 +46,11 @@ public class WebTablesTests extends TestBase {
 
         // get number of rows including header
         List<WebElement> rowsWithHeader = driver.findElements(By.xpath("//table[@id='table1']//tr"));
-        System.out.println("Number of row with header: " + rowsWithHeader.size());
+        System.out.println("Number of rows with header: " + rowsWithHeader.size());
 
         // get number of rows without header
         List<WebElement> rowsWithOutHeader = driver.findElements(By.xpath("//table[@id='table1']/tbody/tr"));
-        System.out.println("Number of row without header: " + rowsWithOutHeader.size());
-
-    }
+        System.out.println("Number of rows without header: " + rowsWithOutHeader.size()); }
 
     // GET SINGLE ROW BY INDEX
     @Test
@@ -70,15 +62,12 @@ public class WebTablesTests extends TestBase {
         // get the first row (in the body) dynamic xpath
         String xpath = getTableRowXpath(3);
         row = driver.findElement(By.xpath(xpath));
-        System.out.println(row.getText());
-
-    }
+        System.out.println(row.getText()); }
 
     // getTableRowXpath based on index
     public static String getTableRowXpath(int index) {
         String xpath = "//table[@id='table1']/tbody/tr[" + index + "]";
-        return xpath;
-    }
+        return xpath; }
 
     // GET SINGLE CELL BASED ON INDEX
     @Test
@@ -88,14 +77,11 @@ public class WebTablesTests extends TestBase {
 
         String xpath = getCellXpathByIndex(2, 3);
         cell = driver.findElement(By.xpath(xpath));
-        System.out.println(cell.getText());
-    }
+        System.out.println(cell.getText()); }
 
     public static String getCellXpathByIndex(int row, int column) {
         String xpath = "//table[@id='table1']/tbody/tr[" + row + "]/td[" + column + "]";
-        return xpath;
-    }
-
+        return xpath; }
 
     // GO THROUGH THE TABLE USING LOOPS AND GET ALL VALUES
     @Test
@@ -109,21 +95,14 @@ public class WebTablesTests extends TestBase {
             for (int j = 1; j <= colCount; j++) {
                 String xpath = getCellXpathByIndex(i, j);
                 WebElement cell = driver.findElement(By.xpath(xpath));
-                System.out.println(cell.getText());
-            }
-        }
-    }
+                System.out.println(cell.getText()); } } }
 
     //  returns number of rows excluding the table headers
     public int getRowCount() {
-        return driver.findElements(By.xpath("//table[@id='table1']/tbody/tr")).size();
-    }
-
+        return driver.findElements(By.xpath("//table[@id='table1']/tbody/tr")).size(); }
     // return number of rows
     public int getColCount() {
-        return driver.findElements(By.xpath("//table[@id='table1']//th")).size();
-
-    }
+        return driver.findElements(By.xpath("//table[@id='table1']//th")).size(); }
 
     // GET CELL IN RELATION TO ANOTHER CELL
     // verify that Jason owes me $100.00
@@ -133,12 +112,9 @@ public class WebTablesTests extends TestBase {
 
         String xpath = "//table[@id='table1']//td[2][.='"+firstName+"']/../td[4]";
         WebElement amount = driver.findElement(By.xpath(xpath));
-        Assert.assertEquals(amount.getText(), "$100.00");
-    }
+        Assert.assertEquals(amount.getText(), "$100.00"); }
 
     // from Kateryna Medvedieva
     public String getXpathForValue(String value, String columnIdx){
         String xpath = "/table[@id='table1']//td[.='" + value + "']/../td[" + columnIdx + "]";
-        return xpath;
-    }
-}
+        return xpath; }}

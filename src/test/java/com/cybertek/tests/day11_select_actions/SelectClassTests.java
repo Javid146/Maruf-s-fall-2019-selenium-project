@@ -1,5 +1,4 @@
 package com.cybertek.tests.day11_select_actions;
-
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -23,29 +22,24 @@ public class SelectClassTests {
     @BeforeMethod
     public void beforeMethod() {
         driver = WebDriverFactory.getDriver("chrome");
-        driver.get("http://practice.cybertekschool.com/dropdown");
+        driver.get("http://practice.cybertekschool.com/dropdown"); }
 
-    }
-
-    @AfterMethod
-    public void afterTest() {
-        driver.quit();
-    }
+    //@AfterMethod
+   // public void afterTest() {driver.quit();}
 
     @Test
     public void getSelectedOption() {
-        // FIND THE ELEMENT THAT HAS SELECT TAG
+        // FIND THE ELEMENT THAT HAS dropdown menu/////////////////////////////////////////////////////////////////////////
         WebElement dropdown = driver.findElement(By.id("dropdown"));
-
         // create a select class using the web element
         Select dropdownList = new Select(dropdown);
 
-        // get the selected option
+        // get the selected option//////////////////////////////////////////////////////////////////////////////////////
         WebElement selectedOption = dropdownList.getFirstSelectedOption();
+        selectedOption.click();
         System.out.println(selectedOption.getText());
         // verify selected option
-        Assert.assertEquals(selectedOption.getText(), "Please select an option");
-    }
+        Assert.assertEquals(selectedOption.getText(), "Please select an option"); }
 
     @Test
     public void selectFromList() throws InterruptedException {
@@ -55,7 +49,7 @@ public class SelectClassTests {
         Select states = new Select(dropdown);
 
         // TODO selectByVisibleText --> selects by the text of the option
-        states.selectByVisibleText("Iowa");
+        states.selectByVisibleText("Iowa");/////////////////////////////////////////////////////////////////////////////
         Thread.sleep(1000);
         states.selectByVisibleText("Vermont");
         Thread.sleep(1000);
@@ -63,7 +57,7 @@ public class SelectClassTests {
         Thread.sleep(1000);
 
         // TODO selectByIndex --> selects based on the index of the option, 0 based count
-        states.selectByIndex(0);
+        states.selectByIndex(0);////////////////////////////////////////////////////////////////////////////////////////
         Thread.sleep(1000);
         states.selectByIndex(10);
         Thread.sleep(1000);
@@ -72,31 +66,26 @@ public class SelectClassTests {
 
         // TODO selectByValue--> selects based on the value of the value attribute of the option
         // TODO selectByValue --> it is not select text
-        states.selectByValue("VA");
+        states.selectByValue("VA");/////////////////////////////////////////////////////////////////////////////////////
         Thread.sleep(1000);
         states.selectByValue("SC");
         Thread.sleep(1000);
         states.selectByValue("CO");
         Thread.sleep(1000);
-        states.selectByValue("NE");
-
-    }
+        states.selectByValue("NE"); }
 
     @Test
     public void getAllAvailableOptions() {
         Select monthList = new Select(driver.findElement(By.id("month")));
-
         // print the current selection
         System.out.println(monthList.getFirstSelectedOption().getText());
 
-        // TODO getOptions--> returns all of the availabe options from dropdown
-        List<WebElement> allOptions = monthList.getOptions();
-
+        // TODO getOptions--> returns all of the available options from dropdown
+        List<WebElement> allOptions = monthList.getOptions();///////////////////////////////////////////////////////////
         System.out.println("Number of months: " + allOptions.size());
 
         for (WebElement month : allOptions) {
-            System.out.println(month.getText());
-        }
+            System.out.println(month.getText()); }
 
         // verify that months list always shows the current month as selected
         // get the current month
@@ -108,35 +97,27 @@ public class SelectClassTests {
         List<String> expectedMonths = Arrays.asList("January", "February", "March", "April", "May", "June", "July", "August",
                 "September", "October", "November", "December");
 
-
-        // get options gives me list webelements, so allOptions is alist of web elemetns
-        // but my expected it a list strings. i have to make sure the both list of strings
-        // i need to get lsit string from list of webeelment
+        // get options gives me list web elements, so allOptions is a list of web elements
+        // but my expected is a list strings. i have to make sure the both are list of strings
+        // i need to get list string from list of web element
 
         List<String> actualMonths = new ArrayList<>();
         for (WebElement option : allOptions) {
             actualMonths.add(option.getText());
         }
-        Assert.assertEquals(actualMonths, expectedMonths);
-
-    }
-
+        Assert.assertEquals(actualMonths, expectedMonths); }
 
     @Test
     public void verifyOptions(){
         Select list = new Select(driver.findElement(By.id("dropdown")));
         // verify that list has 3 options
         int expectedSize = 3;
-        int actualSize = list.getOptions().size();
+        int actualSize = list.getOptions().size();//////////////////////////////////////////////////////////////////////
 
         List<String> expectedValues = Arrays.asList("Please select an option", "Option 1", "Option 2");
 
         List<String> actualValues = new ArrayList<>();
         for (WebElement option : list.getOptions()) {
-            actualValues.add(option.getText());
-        }
+            actualValues.add(option.getText()); }
 
-        Assert.assertEquals(actualValues, expectedValues);
-
-    } // BREAK 2.03
-}
+        Assert.assertEquals(actualValues, expectedValues); }}

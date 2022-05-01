@@ -39,7 +39,6 @@ public abstract class VytrackPageBase {
         WebElement menu2El = Driver.getDriver().findElement(By.xpath(menu2X));
 
         WebDriverWait wait =new WebDriverWait(Driver.getDriver(), 5);
-
         wait.until(ExpectedConditions.elementToBeClickable(menu1El));
 
         menu1El.click();
@@ -49,8 +48,4 @@ public abstract class VytrackPageBase {
             e.printStackTrace();
         }
         wait.until(ExpectedConditions.elementToBeClickable(menu2El));
-        menu2El.click();
-
-    }
-
-}
+        menu2El.click(); }}

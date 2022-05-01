@@ -1,5 +1,4 @@
 package com.cybertek.tests.office_hours3;
-
 import com.cybertek.base.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -8,7 +7,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 public class DifferentBrowsers extends TestBase {
-
 
     @Test
     public void test() {
@@ -26,7 +24,6 @@ public class DifferentBrowsers extends TestBase {
         }
         // use the instance of keyword
         System.out.println("OPTION 3");
-
         if (driver instanceof FirefoxDriver) {
             System.out.println("This is firefoooooox");
         } else if (driver instanceof ChromeDriver) {

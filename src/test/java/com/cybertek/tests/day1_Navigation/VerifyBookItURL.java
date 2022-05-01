@@ -1,5 +1,4 @@
 package com.cybertek.tests.day1_Navigation;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -7,13 +6,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class VerifyBookItURL {
 
     public static void main(String[] args) {
-        /*
-        Task 2:
-2. Go to Bookit login page
-https://cybertek-reservation-qa.herokuapp.com/sign-in
-2. Verify that URL contains “cybertek-reservation”
-         */
-
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();

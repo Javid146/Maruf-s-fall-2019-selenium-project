@@ -1,5 +1,4 @@
 package com.cybertek.tests.day14_test_base_props_driver;
-
 import com.cybertek.base.TestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import org.openqa.selenium.By;
@@ -15,7 +14,6 @@ public class FileUploadTests extends TestBase {
     click submit
     very file name is displayed in next page
      */
-
     @Test
     public void fileUploadTest() {
         String url = ConfigurationReader.getProperty("url");
@@ -26,13 +24,10 @@ public class FileUploadTests extends TestBase {
 
         WebElement fileInput = driver.findElement(By.id("file-upload"));
 
-        fileInput.sendKeys("/Users/marufjon/Desktop/my_file.txt");
+        fileInput.sendKeys("C:/Users/mamma/Desktop/javid.txt");
 
         WebElement submit = driver.findElement(By.id("file-submit"));
         submit.click();
 
         WebElement uploadedFile = driver.findElement(By.id("uploaded-files"));
-        Assert.assertEquals(uploadedFile.getText(), "my_file.txt");
-
-    }
-}
+        Assert.assertEquals(uploadedFile.getText(), "javid.txt"); }}

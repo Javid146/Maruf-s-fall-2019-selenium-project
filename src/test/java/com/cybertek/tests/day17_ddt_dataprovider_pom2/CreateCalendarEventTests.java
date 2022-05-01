@@ -1,5 +1,4 @@
 package com.cybertek.tests.day17_ddt_dataprovider_pom2;
-
 import com.cybertek.base.VytrackTestBase;
 import com.cybertek.utilities.ConfigurationReader;
 import org.testng.annotations.Test;
@@ -12,16 +11,13 @@ public class CreateCalendarEventTests extends VytrackTestBase {
     public void allDayEventCheckBoxTest(){
         loginPage.login(ConfigurationReader.getProperty("driver_username"),
                 ConfigurationReader.getProperty("driver_password"));
-        driver.get("https://qa3.vytrack.com/calendar/event/create");
-        assertFalse(createCalendarEventsPage.allDayEventCheckbox.isSelected());
-
-    }
+        driver.get("https://app.vytrack.com/calendar/event/create");
+        assertFalse(createCalendarEventsPage.allDayEventCheckbox.isSelected()); }
 
     @Test
-    public void repeatCheckBoxTest(){
+    public void repeatCheckBoxTest() throws InterruptedException {
         loginPage.login(ConfigurationReader.getProperty("driver_username"),
                 ConfigurationReader.getProperty("driver_password"));
-        driver.get("https://qa3.vytrack.com/calendar/event/create");
-        assertFalse(createCalendarEventsPage.repeatCheckbox.isSelected());
-    }
-}
+        driver.get("https://app.vytrack.com/calendar/event/create");
+        Thread.sleep(3000);
+        assertFalse(createCalendarEventsPage.repeatCheckbox.isSelected()); }}
