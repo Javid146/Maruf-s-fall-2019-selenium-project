@@ -26,7 +26,8 @@ public class PageHeadersTests extends VytrackTestBase {
         String actual = dashboardPage.pageHeader.getText();
         test.info("Verifying page header text");
         assertEquals(actual, "Quick Launchpad");
-        test.pass("PASS: Dashboard page title test"); }
+        test.pass("PASS: Dashboard page title test");
+    }
 
     @Test
     public void fleetVehiclesTest() throws InterruptedException {

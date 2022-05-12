@@ -1,6 +1,7 @@
 package com.cybertek.tests.day8_review_2;
 import com.cybertek.utilities.WebDriverFactory;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -16,7 +17,7 @@ public class GetAttributeExamples {
         // get page source - long coding message about page
 //        System.out.println("getPageSource: "+driver.getPageSource());///////////////////////////////////////////////////
 
-        WebElement myEbayLink = driver.findElement(By.linkText("My eBay"));
+        WebElement myEbayLink = driver.findElement(By.linkText("My eBay"+ Keys.ENTER));
         System.out.println(myEbayLink.getText());
 
         // get certain values of attributes of the webelement

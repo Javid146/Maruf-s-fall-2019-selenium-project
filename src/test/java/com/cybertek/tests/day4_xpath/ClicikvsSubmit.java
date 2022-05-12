@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class ClicikvsSubmit {
     public static void main(String[] args) {
@@ -18,14 +19,14 @@ public class ClicikvsSubmit {
         emailbox.sendKeys("abc@gamil.com");
 
         WebElement submitBttn = driver.findElement(By.id("form_submit"));
-        //submit email by clicking the "retrive password"
+        //submit email by clicking the "retrieve password"
         submitBttn.submit();
 
         String expectedURL = "http://practice.cybertekschool.com/email_sent";
         String actualURL = driver.getCurrentUrl();/////////////////////////////////////////
 
         if(expectedURL.equals(actualURL)){
-            System.out.println("test is pass");
+            System.out.println("test is passed");
         }else {
             System.out.println("test is failed");
         }

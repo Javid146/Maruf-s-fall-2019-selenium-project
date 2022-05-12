@@ -1,4 +1,5 @@
 package com.cybertek.tests.day20_jdbc;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import java.sql.*;
@@ -37,7 +38,7 @@ public class OracleJDBCConnectionDemo {
         // statement.executeQuery --> executed the query and returns the result in resultset object
         ResultSet resultSet = statement.executeQuery("select * from employees");////////////////////////////////////
         // metadata about the connection
-        DatabaseMetaData dmetaData = connection.getMetaData();
+        DatabaseMetaData dmetaData = connection.getMetaData();/////////////////////////////////////////////////////////
         System.out.println(dmetaData.getDatabaseProductName());
         System.out.println(dmetaData.getDatabaseProductVersion());
         System.out.println(dmetaData.getDriverName());
@@ -54,7 +55,7 @@ public class OracleJDBCConnectionDemo {
             System.out.println(rmetaData.getColumnName(i));
         }
         // absolute --> jumps to given row
-        resultSet.absolute(1);/////////////////////////////////////
+        resultSet.absolute(1);///////////////////////////////////////////////////////////
         // getObject --> returns the value of the cell under given column
         System.out.println(resultSet.getObject("first_name"));
         // get the name of the last person
@@ -78,7 +79,6 @@ public class OracleJDBCConnectionDemo {
 
         resultSet.next();
         System.out.println(resultSet.getString("salary")); }
-
         @Test
         public void updateAndDelete() throws SQLException {
             String url = "jdbc:oracle:thin:@54.162.64.117:1521:xe";
@@ -92,7 +92,10 @@ public class OracleJDBCConnectionDemo {
             System.out.println("getMetaData: "+resultSet.getMetaData());
             System.out.println("resultSet.getRow() = " + resultSet.getRow());
             // resultSet = statement.executeQuery("UPDATE  * from employees where FIRST_NAME = 'Steven'"); */
-    }}
+
+
+
+        }}
 
 
 

@@ -2,6 +2,11 @@ package com.cybertek.tests.day20_jdbc;
 import org.testng.annotations.Test;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 public class MySQLJDBCConnectionDemo {
     /**
      * Vytrack Database connection information
@@ -41,5 +46,18 @@ public class MySQLJDBCConnectionDemo {
         resultSet.close();
         statement.close();
         connection.close();
+
+////get data from jdbc, put it into map (key and value), add map to list of maps (So you can call by index later).
+//        List<Map<String, Object>> caci = new ArrayList<>();
+//        int colCount = resultSet.getMetaData().getColumnCount();//get num of columna
+//
+//        while(resultSet.next()) {
+//            Map<String, Object> row = new HashMap<>();
+////iterate columns' name (first_name) and their value (Javid) add to map
+//            for (int t = 0; t < colCount; t++) {
+//                row.put(resultSet.getMetaData().getColumnName(t), resultSet.getObject(t));
+//            }
+//            caci.add(row);
+//        }
     }}
 
